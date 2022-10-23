@@ -45,7 +45,7 @@ while i!=j
 		post_date[i] = link3[i].children[3].text.strip
 
 		doc2 = Nokogiri::HTML(open(link[i].children[1].attributes["href"].value));
-        
+        $job_category[i] = doc2.search('div.job_detail_cell2')[2].children[0].children.text.strip # Add of job Category
         $industry[i] = doc2.search('div.job_detail_cell2')[7].children[0].children.text.strip
 		$job_type[i] = doc2.search('div.job_detail_cell2')[8].children[0].text.strip
         $description[i] = doc2.search('div#ad-desc-cont').children[3].children[0].text.strip
